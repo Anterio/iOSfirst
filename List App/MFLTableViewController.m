@@ -81,7 +81,7 @@
 
         NSLog(@"listItem = %@", listItem);
     cell.textLabel.text = listItem;
-    
+    cell.backgroundColor = [UIColor greenColor];
     
     // Configure the cell...
     
