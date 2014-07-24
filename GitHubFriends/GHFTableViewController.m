@@ -16,6 +16,8 @@
 @implementation GHFTableViewController
 {
     NSMutableArray* githubFriends;
+    NSArray* friendsList;
+    NSArray* insertObjects;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -31,14 +33,140 @@
                             @"name": @"Jo Albright",
                             @"blog": @"jo2.co",
                             @"location": @"Atlanta, Ga",
-                            @"email": @"me@jo2.co"
+                            @"email": @"me@jo2.co",
+                            @"followers_url": @"22",
+                            @"following_url": @"34",
                             },
+                           @{
+                               @"login": @"dmerrill88",
+                               @"avatar_url": @"https://avatars.githubusercontent.com/u/8224723?",
+                               @"name": @"Daniel Merrill",
+                               @"blog": @"jo2.co",
+                               @"location": @"United States",
+                               @"email": @"dmerrill88@gmail.com",
+                               @"followers_url": @"22",
+                               @"following_url": @"34",
+                               },
+                           @{
+                               @"login": @"npeterson213",
+                               @"avatar_url": @"https://avatars.githubusercontent.com/u/8224722",
+                               @"name": @"Nick Peterson",
+                               @"blog": @"jo2.co",
+                               @"location": @"Buckhead, Ga",
+                               @"email": @"nick.peterson213@gmail.com",
+                               @"followers_url": @"22",
+                               @"following_url": @"34",
+                               },
+                           @{
+                               @"login": @"ssneller",
+                               @"avatar_url": @"https://avatars.githubusercontent.com/u/8129918?",
+                               @"name": @"Steve Sneller",
+                               @"blog": @"http://www.stevesneller.com",
+                               @"location": @"Marietta, Ga",
+                               @"email": @"m.ssneller@gmail.com",
+                               @"followers_url": @"22",
+                               @"following_url": @"34",
+                               },
+                           @{
+                               @"login": @"jhend11",
+                               @"avatar_url": @"https://avatars.githubusercontent.com/u/7279926?",
+                               @"name": @"Josh Hendershot",
+                               @"blog": @"sumry.in/joshhendershot",
+                               @"location": @"Buckhead, Ga",
+                               @"email": @"jhend11@uw.edu",
+                               @"followers_url": @"22",
+                               @"following_url": @"34",
+                               },
+                           @{
+                               @"login": @"anterio",
+                               @"avatar_url": @"https://avatars.githubusercontent.com/u/8224728?",
+                               @"name": @"Arthur Boia",
+                               @"blog": @"pumpingsol.com",
+                               @"location": @"Alpharetta, Ga",
+                               @"email": @"arthurboia@me.com",
+                               @"followers_url": @"22",
+                               @"following_url": @"34",
+                               },
+                           @{
+                               @"login": @"Kalson",
+                               @"avatar_url": @"https://avatars.githubusercontent.com/u/7114996?",
+                               @"name": @"Kalson Kalu",
+                               @"blog": @"",
+                               @"location": @"Houston, Tx",
+                               @"email": @"dfljfme@jo2.co",
+                               @"followers_url": @"22",
+                               @"following_url": @"34",
+                               },
+                           @{
+                               @"login": @"mertid",
+                               @"avatar_url": @"https://avatars.githubusercontent.com/u/7989843?",
+                               @"name": @"Merritt Tidwell",
+                               @"blog": @"google.com",
+                               @"location": @"United States of 'Merica",
+                               @"email": @"Merritt.tidwell@gmail.com",
+                               @"followers_url": @"22",
+                               @"following_url": @"34",
+                               },
+                           @{
+                               @"login": @"schwaebek",
+                               @"avatar_url": @"https://avatars.githubusercontent.com/u/6909470?",
+                               @"name": @"Katlyn Schwaebe",
+                               @"blog": @"yahoo.com",
+                               @"location": @"Alpharetta, Ga",
+                               @"email": @"schwaebek@gmail.com",
+                               @"followers_url": @"22",
+                               @"following_url": @"34",
+                               },
+                           @{
+                               @"login": @"josephlausf",
+                               @"avatar_url": @"https://avatars.githubusercontent.com/u/7451830?",
+                               @"name": @"Joseph Lau",
+                               @"blog": @"businessinsider.com",
+                               @"location": @"San Francisco, CA",
+                               @"email": @"forwardintent@gmail.com",
+                               @"followers_url": @"22",
+                               @"following_url": @"34",
+                               },
+                           @{
+                               @"login": @"jeremycbutler",
+                               @"avatar_url": @"https://avatars.githubusercontent.com/u/7903562?",
+                               @"name": @"Jeremy Butler",
+                               @"blog": @"www.famousfox.us",
+                               @"location": @"Savannah, Ga",
+                               @"email": @"jeremybutler@me.com",
+                               @"followers_url": @"22",
+                               @"following_url": @"34",
+                               },
+                           @{
+                               @"login": @"ericstephen",
+                               @"avatar_url": @"https://avatars.githubusercontent.com/u/8224735?",
+                               @"name": @"Eric Stephen",
+                               @"blog": @"youtube.com",
+                               @"location": @"Sandy Springs, Ga",
+                               @"email": @"eric.stephen.gt@gmail.com",
+                               @"followers_url": @"22",
+                               @"following_url": @"34",
+                               },
+                           @{
+                               @"login": @"EWJSeidel",
+                               @"avatar_url": @"https://avatars.githubusercontent.com/u/8224720?",
+                               @"name": @"Eric Seidel",
+                               @"blog": @"www.ewjseidel.com",
+                               @"location": @"ATL",
+                               @"email": @"ewjseidel@gmail.com",
+                               @"followers_url": @"22",
+                               @"following_url": @"34",
+                               },
                           
+                           
+                           
                             ] mutableCopy];
         
-                }
+                            }
+    
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -46,6 +174,8 @@
     
     UIView* headerView = [[UIView alloc] initWithFrame:(CGRectMake(0, 0, 120, 200))];
     self.tableView.tableHeaderView = headerView;
+    
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -56,7 +186,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 115;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -145,5 +275,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+// , @"dmerrill88", @"npeterson213", @"ssneller", @"jhend11", @"anterio", @"Kalson", @"ssniteman", @"EWJSeidel", @"ericstephen", @"jeremycbutler", @"josephlausf", @"schwaebek", @"mertid", @"jeremycbutler"];
 @end
