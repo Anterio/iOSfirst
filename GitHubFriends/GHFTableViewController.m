@@ -18,6 +18,7 @@
     NSMutableArray* githubFriends;
     NSArray* friendsList;
     NSArray* insertObjects;
+    UIButton* searchButton;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -172,10 +173,27 @@
 {
     [super viewDidLoad];
     
-    UIView* headerView = [[UIView alloc] initWithFrame:(CGRectMake(0, 0, 120, 200))];
+    UIView* headerView = [[UIView alloc] initWithFrame:(CGRectMake(0, 0, 320, 75))];
     self.tableView.tableHeaderView = headerView;
+    UITextField* search = [[UITextField alloc] initWithFrame:(CGRectMake(15, 23, 220, 40))];
     
     
+    
+    
+    
+    searchButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 22, 44, 44)];
+    [self.view addSubview:searchButton];
+    searchButton.backgroundColor = [UIColor lightGrayColor];
+    searchButton.layer.cornerRadius = 22;
+    [searchButton setTitle: @"go" forState:UIControlStateNormal];
+    
+    search.placeholder = @"  search";
+    search.borderStyle = UITextBorderStyleLine;
+    [headerView addSubview:search];
+    CGRect sepFrame = CGRectMake(0, headerView.frame.size.height-1, 320, 1);
+    UIView * seperatorView = [[UIView alloc] initWithFrame:sepFrame];
+    seperatorView.backgroundColor = [UIColor colorWithWhite:224.0/255.0 alpha:1.0];
+    [headerView addSubview:seperatorView];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
