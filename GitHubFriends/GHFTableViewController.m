@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Arthur Boia. All rights reserved.
 //
 
+#import "GHFViewController.h"
 #import "GHFTableViewController.h"
 #import "GHFTableViewCell.h"
 
@@ -19,6 +20,7 @@
     NSArray* friendsList;
     NSArray* insertObjects;
     UIButton* searchButton;
+//    UIBUtton* myButton;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -31,6 +33,7 @@
         githubFriends = [@[@{
                             @"login": @"joalbright",
                             @"avatar_url": @"https://avatars.githubusercontent.com/u/1536630?",
+                            @"html_url": @"https://github.com/joalbright",
                             @"name": @"Jo Albright",
                             @"blog": @"jo2.co",
                             @"location": @"Atlanta, Ga",
@@ -163,7 +166,9 @@
                            
                             ] mutableCopy];
         
+        
                             }
+    
     
     return self;
 }
@@ -172,39 +177,54 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIView* headerView = [[UIView alloc] initWithFrame:(CGRectMake(0, 0, 320, 75))];
+    UIView* headerView = [[UIView alloc] initWithFrame:(CGRectMake(0, 0, 320, 60))];
     self.tableView.tableHeaderView = headerView;
-    UITextField* search = [[UITextField alloc] initWithFrame:(CGRectMake(15, 23, 220, 40))];
+    
+    UIButton* searchButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 10, 40, 40)];
     
     
-    
-    
-    
-    searchButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 22, 44, 44)];
-    [self.view addSubview:searchButton];
-    searchButton.backgroundColor = [UIColor lightGrayColor];
-    searchButton.layer.cornerRadius = 22;
-    [searchButton setTitle: @"go" forState:UIControlStateNormal];
-    
+    UITextField* search = [[UITextField alloc] initWithFrame:(CGRectMake(10, 10, 253, 40))];
     search.placeholder = @"  search";
-    search.borderStyle = UITextBorderStyleLine;
+    headerView.backgroundColor = [UIColor colorWithRed:0.965f green:0.125f blue:0.341f alpha:1.0f];
     [headerView addSubview:search];
+    
+    search.layer.cornerRadius = 5;
+    search.backgroundColor = [UIColor whiteColor];
+    
+    
     CGRect sepFrame = CGRectMake(0, headerView.frame.size.height-1, 320, 1);
+    
     UIView * seperatorView = [[UIView alloc] initWithFrame:sepFrame];
-    seperatorView.backgroundColor = [UIColor colorWithWhite:224.0/255.0 alpha:1.0];
+    seperatorView.backgroundColor = [UIColor lightGrayColor];
     [headerView addSubview:seperatorView];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    UIImage* myButton = [UIImage imageNamed:@"searchButton.png"];
+    [searchButton setImage:myButton forState:UIControlStateNormal];
+    [self.view addSubview:searchButton];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+    
+
+  
+    // round search button
+//    searchButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 15, 44, 44)];
+//    [self.view addSubview:searchButton];
+//    searchButton.backgroundColor = [UIColor lightGrayColor];
+//    searchButton.layer.cornerRadius = 22;
+//    [searchButton setTitle: @"go" forState:UIControlStateNormal];
+
+    // rectangle uitextfield 
+//    searchButton.placeholder = @"  search";
+    
+    //        NSLog(@"%@", friendInfo);
+    //
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 115;
+    return 100;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -243,7 +263,19 @@
 */
     return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Select row at %@", indexPath);
+    
+    GHFViewController* profileView = [[GHFViewController alloc] init];
+    
+    profileView.view.backgroundColor = [UIColor lightGrayColor];
+    
+    profileView.friendInfo = githubFriends[indexPath.row];
+    
+    [self.navigationController pushViewController:profileView animated:YES];
+    
+}
 
 /*
 // Override to support conditional editing of the table view.

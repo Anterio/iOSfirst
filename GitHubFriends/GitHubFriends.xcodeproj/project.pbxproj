@@ -21,6 +21,11 @@
 		8E239D8E19813F2900356422 /* GitHubFriendsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E239D8D19813F2900356422 /* GitHubFriendsTests.m */; };
 		8E239D9A19813FA300356422 /* GHFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E239D9919813FA300356422 /* GHFTableViewController.m */; };
 		8E239D9D1981481300356422 /* GHFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E239D9C1981481300356422 /* GHFTableViewCell.m */; };
+		8E75B1B91982A7EA0049409D /* GHFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E75B1B81982A7EA0049409D /* GHFViewController.m */; };
+		8E75B1BB1982D7F10049409D /* searchButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E75B1BA1982D7F10049409D /* searchButton.png */; };
+		8E75B1BE1982DFA60049409D /* profileArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E75B1BD1982DFA60049409D /* profileArrow.png */; };
+		8E75B1C11982DFAE0049409D /* upArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E75B1BF1982DFAE0049409D /* upArrow.png */; };
+		8E75B1C21982DFAE0049409D /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E75B1C01982DFAE0049409D /* downArrow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +59,12 @@
 		8E239D9919813FA300356422 /* GHFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHFTableViewController.m; sourceTree = "<group>"; };
 		8E239D9B1981481300356422 /* GHFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHFTableViewCell.h; sourceTree = "<group>"; };
 		8E239D9C1981481300356422 /* GHFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHFTableViewCell.m; sourceTree = "<group>"; };
+		8E75B1B71982A7EA0049409D /* GHFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHFViewController.h; sourceTree = "<group>"; };
+		8E75B1B81982A7EA0049409D /* GHFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHFViewController.m; sourceTree = "<group>"; };
+		8E75B1BA1982D7F10049409D /* searchButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchButton.png; sourceTree = "<group>"; };
+		8E75B1BD1982DFA60049409D /* profileArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileArrow.png; sourceTree = "<group>"; };
+		8E75B1BF1982DFAE0049409D /* upArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upArrow.png; sourceTree = "<group>"; };
+		8E75B1C01982DFAE0049409D /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +94,7 @@
 		8E239D5C19813F2900356422 = {
 			isa = PBXGroup;
 			children = (
+				8E75B1BC1982D8080049409D /* images */,
 				8E239D9719813F8200356422 /* Controllers */,
 				8E239D6E19813F2900356422 /* GitHubFriends */,
 				8E239D8719813F2900356422 /* GitHubFriendsTests */,
@@ -158,8 +170,21 @@
 				8E239D9919813FA300356422 /* GHFTableViewController.m */,
 				8E239D9B1981481300356422 /* GHFTableViewCell.h */,
 				8E239D9C1981481300356422 /* GHFTableViewCell.m */,
+				8E75B1B71982A7EA0049409D /* GHFViewController.h */,
+				8E75B1B81982A7EA0049409D /* GHFViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		8E75B1BC1982D8080049409D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				8E75B1BD1982DFA60049409D /* profileArrow.png */,
+				8E75B1BA1982D7F10049409D /* searchButton.png */,
+				8E75B1BF1982DFAE0049409D /* upArrow.png */,
+				8E75B1C01982DFAE0049409D /* downArrow.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,7 +264,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E239D7319813F2900356422 /* InfoPlist.strings in Resources */,
+				8E75B1C11982DFAE0049409D /* upArrow.png in Resources */,
 				8E239D7B19813F2900356422 /* Images.xcassets in Resources */,
+				8E75B1C21982DFAE0049409D /* downArrow.png in Resources */,
+				8E75B1BB1982D7F10049409D /* searchButton.png in Resources */,
+				8E75B1BE1982DFA60049409D /* profileArrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E75B1B91982A7EA0049409D /* GHFViewController.m in Sources */,
 				8E239D7919813F2900356422 /* GHFAppDelegate.m in Sources */,
 				8E239D9D1981481300356422 /* GHFTableViewCell.m in Sources */,
 				8E239D9A19813FA300356422 /* GHFTableViewController.m in Sources */,
@@ -458,6 +488,7 @@
 				8E239D9319813F2900356422 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8E239D9419813F2900356422 /* Build configuration list for PBXNativeTarget "GitHubFriendsTests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +497,7 @@
 				8E239D9619813F2900356422 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

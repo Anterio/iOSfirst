@@ -21,7 +21,10 @@
     UIButton* profile;
     UILabel* search;
     UILabel* detailTextLabel;
+    UILabel* gistNumbers;
     
+//    UILabel*tableview;
+
 }
 
 
@@ -29,16 +32,19 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)   {
-                friendName = [[UILabel alloc] initWithFrame:(CGRectMake(65, 10, 200, 40))];
+                friendName = [[UILabel alloc] initWithFrame:(CGRectMake(115, 5, 200, 40))];
                 [self.contentView addSubview: friendName];
-                friendImage = [[UIImageView alloc] initWithFrame:(CGRectMake(10, 10, 40, 40))];
+                friendImage = [[UIImageView alloc] initWithFrame:(CGRectMake(0, 0, 100, 100))];
                 [self.contentView addSubview: friendImage];
-                detailTextLabel = [[UILabel alloc] initWithFrame:(CGRectMake(65, 35, 200, 40))];
+                detailTextLabel = [[UILabel alloc] initWithFrame:(CGRectMake(115, 26, 200, 40))];
                 [self.contentView addSubview: detailTextLabel];
-                userFollows = [[UILabel alloc] initWithFrame:(CGRectMake(10, 80, 200, 40))];
+                userFollows = [[UILabel alloc] initWithFrame:(CGRectMake(115, 40, 200, 40))];
                 [self.contentView addSubview: userFollows];
-                userCreepers = [[UILabel alloc] initWithFrame:(CGRectMake(10, 60, 200, 40))];
+                userCreepers = [[UILabel alloc] initWithFrame:(CGRectMake(115, 60, 200, 40))];
                 [self.contentView addSubview: userCreepers];
+                self.backgroundColor = [UIColor colorWithRed:0.227f green:0.227f blue:0.227f alpha:1.0f];
+                [self.contentView addSubview: gistNumbers];
+                gistNumbers = [[UILabel alloc] initWithFrame:(CGRectMake(240, 65, 25, 25))];
     
                 }
     return self;
@@ -62,69 +68,59 @@
     
     friendName.text = friendInfo [@"name"];
     friendName.textColor = [UIColor lightGrayColor];
-    friendName.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight"  size:30];
+    friendName.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight"  size:20];
+    
     
     friendImage.image = image;
-    friendImage.layer.cornerRadius = 20;
-    friendImage.layer.masksToBounds = YES;
     friendImage.backgroundColor = [UIColor lightGrayColor];
    
     detailTextLabel.text = friendInfo [@"location"];
-    detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light"  size:15];
+    detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light"  size:12];
     detailTextLabel.textColor = [UIColor lightGrayColor];
     
-    userFollows.text = [NSString stringWithFormat:@"Following  %@", friendInfo [@"following_url"]];
-    userFollows.font = [UIFont fontWithName:@"HelveticaNeue-Light"  size:15];
+    userFollows.text = [NSString stringWithFormat:@"follower%@", friendInfo [@"following_url"]];
+    userFollows.font = [UIFont fontWithName:@"HelveticaNeue-Light"  size:10];
     userFollows.textColor = [UIColor lightGrayColor];
     
     
-    userCreepers.text = [NSString stringWithFormat:@"Creepers: %@", friendInfo[@"followers_url"]];
-    userCreepers.font = [UIFont fontWithName:@"HelveticaNeue-Light"  size:15];
+    userCreepers.text = [NSString stringWithFormat:@"leader%@", friendInfo[@"followers_url"]];
+    userCreepers.font = [UIFont fontWithName:@"HelveticaNeue-Light"  size:10];
     userCreepers.textColor = [UIColor lightGrayColor];
     
     
-    UIButton* gistButton = [[UIButton alloc] initWithFrame: CGRectMake(210, 50, 100, 25)];
-    gistButton.backgroundColor = [UIColor lightGrayColor];
+    
+    gistNumbers.text = friendInfo [@"location"];
+    gistNumbers.textColor = [UIColor lightGrayColor];
+    gistNumbers.backgroundColor = [UIColor lightGrayColor];
+    gistNumbers.layer.cornerRadius = 10;
+    gistNumbers.layer.masksToBounds = YES;
+    [self.contentView addSubview:gistNumbers];
+    
+    UIButton* gistButton = [[UIButton alloc] initWithFrame: CGRectMake(250, 65, 60, 25)];
+//    gistButton.backgroundColor = [UIColor lightGrayColor];
     gistButton.layer.cornerRadius = 10;
+    gistButton.layer.borderWidth = 1;
+    gistButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+//    gistButton.currentTitleColor.lightGrayColor = [UIColor lightGrayColor];
+    
     [self.contentView addSubview:gistButton];
     [gistButton setTitle:@"Gist" forState:(UIControlStateNormal)];
-//    [gistButton addTarget:self action:@selector(gistButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-//    [gistButton addTarget:self action:@selector(@"www.google.com") forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    
-    
-//    gistButton = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://google.com"]];
-    
-    
-    UIButton* profileButton = [[UIButton alloc] initWithFrame: CGRectMake(210, 80, 100, 25)];
-    profileButton.backgroundColor = [UIColor lightGrayColor];
-    profileButton.layer.cornerRadius = 10;
-    [self.contentView addSubview:profileButton];
-    [profileButton setTitle:@"Profile" forState:(UIControlStateNormal)];
-    
-    
- 
-    
-    
+    [gistButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+//    UIImage* myBtnImage = [UIImage imageNamed:@"heidi"]; //heidi.png
 //    
-//    searchButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 15, 44, 44)];
-//    [self.view addSubview:searchButton];
-//    searchButton.backgroundColor = [UIColor lightGrayColor];
-//    searchButton.layer.cornerRadius = 22;
-//    [searchButton setTitle: @"go" forState:UIControlStateNormal];
-//    
-//    search.placeholder = @"  search";
-//    
-//    
-//        NSLog(@"%@", friendInfo);
-//    
+//    [gistButton setImage:myBtnImage forState:UIControlStateNormal];
+////  [gistButton addTarget:self action:@selector(gistButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//  [gistButton addTarget:self action:@selector(@"www.google.com") forControlEvents:UIControlEventTouchUpInside];
+//   gistButton = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://google.com"]];
     
     
-    
-    
-    
+//    UIButton* profileButton = [[UIButton alloc] initWithFrame: CGRectMake(210, 80, 100, 25)];
+//    profileButton.backgroundColor = [UIColor lightGrayColor];
+//    profileButton.layer.cornerRadius = 10;
+//    [self.contentView addSubview:profileButton];
+//    [profileButton setTitle:@"Profile" forState:(UIControlStateNormal)];
 }
+
 
 - (void)awakeFromNib
 {
