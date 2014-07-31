@@ -9,6 +9,9 @@
 #import "GHFViewController.h"
 #import "GHFTableViewController.h"
 #import "GHFTableViewCell.h"
+#import "GRAGithubRequest.h"
+
+//3f54d4c424355ba7ea024c78e393187468b05463
 
 @interface GHFTableViewController ()
 
@@ -20,6 +23,7 @@
     NSArray* friendsList;
     NSArray* insertObjects;
     UIButton* searchButton;
+    UITextField* searchField;
 //    UIBUtton* myButton;
 }
 
@@ -30,144 +34,19 @@
         /* NSMutable can add or remove objects and dictionary
          to allow "@[]" to talk to array must add "mutable copy"*/
         
-        githubFriends = [@[@{
-                            @"login": @"joalbright",
-                            @"avatar_url": @"https://avatars.githubusercontent.com/u/1536630?",
-                            @"html_url": @"https://github.com/joalbright",
-                            @"name": @"Jo Albright",
-                            @"blog": @"jo2.co",
-                            @"location": @"Atlanta, Ga",
-                            @"email": @"me@jo2.co",
-                            @"followers_url": @"22",
-                            @"following_url": @"34",
-                            },
-                           @{
-                               @"login": @"dmerrill88",
-                               @"avatar_url": @"https://avatars.githubusercontent.com/u/8224723?",
-                               @"name": @"Daniel Merrill",
-                               @"blog": @"jo2.co",
-                               @"location": @"United States",
-                               @"email": @"dmerrill88@gmail.com",
-                               @"followers_url": @"22",
-                               @"following_url": @"34",
-                               },
-                           @{
-                               @"login": @"npeterson213",
-                               @"avatar_url": @"https://avatars.githubusercontent.com/u/8224722",
-                               @"name": @"Nick Peterson",
-                               @"blog": @"jo2.co",
-                               @"location": @"Buckhead, Ga",
-                               @"email": @"nick.peterson213@gmail.com",
-                               @"followers_url": @"22",
-                               @"following_url": @"34",
-                               },
-                           @{
-                               @"login": @"ssneller",
-                               @"avatar_url": @"https://avatars.githubusercontent.com/u/8129918?",
-                               @"name": @"Steve Sneller",
-                               @"blog": @"http://www.stevesneller.com",
-                               @"location": @"Marietta, Ga",
-                               @"email": @"m.ssneller@gmail.com",
-                               @"followers_url": @"22",
-                               @"following_url": @"34",
-                               },
-                           @{
-                               @"login": @"jhend11",
-                               @"avatar_url": @"https://avatars.githubusercontent.com/u/7279926?",
-                               @"name": @"Josh Hendershot",
-                               @"blog": @"sumry.in/joshhendershot",
-                               @"location": @"Buckhead, Ga",
-                               @"email": @"jhend11@uw.edu",
-                               @"followers_url": @"22",
-                               @"following_url": @"34",
-                               },
-                           @{
-                               @"login": @"anterio",
-                               @"avatar_url": @"https://avatars.githubusercontent.com/u/8224728?",
-                               @"name": @"Arthur Boia",
-                               @"blog": @"pumpingsol.com",
-                               @"location": @"Alpharetta, Ga",
-                               @"email": @"arthurboia@me.com",
-                               @"followers_url": @"22",
-                               @"following_url": @"34",
-                               },
-                           @{
-                               @"login": @"Kalson",
-                               @"avatar_url": @"https://avatars.githubusercontent.com/u/7114996?",
-                               @"name": @"Kalson Kalu",
-                               @"blog": @"",
-                               @"location": @"Houston, Tx",
-                               @"email": @"dfljfme@jo2.co",
-                               @"followers_url": @"22",
-                               @"following_url": @"34",
-                               },
-                           @{
-                               @"login": @"mertid",
-                               @"avatar_url": @"https://avatars.githubusercontent.com/u/7989843?",
-                               @"name": @"Merritt Tidwell",
-                               @"blog": @"google.com",
-                               @"location": @"United States of 'Merica",
-                               @"email": @"Merritt.tidwell@gmail.com",
-                               @"followers_url": @"22",
-                               @"following_url": @"34",
-                               },
-                           @{
-                               @"login": @"schwaebek",
-                               @"avatar_url": @"https://avatars.githubusercontent.com/u/6909470?",
-                               @"name": @"Katlyn Schwaebe",
-                               @"blog": @"yahoo.com",
-                               @"location": @"Alpharetta, Ga",
-                               @"email": @"schwaebek@gmail.com",
-                               @"followers_url": @"22",
-                               @"following_url": @"34",
-                               },
-                           @{
-                               @"login": @"josephlausf",
-                               @"avatar_url": @"https://avatars.githubusercontent.com/u/7451830?",
-                               @"name": @"Joseph Lau",
-                               @"blog": @"businessinsider.com",
-                               @"location": @"San Francisco, CA",
-                               @"email": @"forwardintent@gmail.com",
-                               @"followers_url": @"22",
-                               @"following_url": @"34",
-                               },
-                           @{
-                               @"login": @"jeremycbutler",
-                               @"avatar_url": @"https://avatars.githubusercontent.com/u/7903562?",
-                               @"name": @"Jeremy Butler",
-                               @"blog": @"www.famousfox.us",
-                               @"location": @"Savannah, Ga",
-                               @"email": @"jeremybutler@me.com",
-                               @"followers_url": @"22",
-                               @"following_url": @"34",
-                               },
-                           @{
-                               @"login": @"ericstephen",
-                               @"avatar_url": @"https://avatars.githubusercontent.com/u/8224735?",
-                               @"name": @"Eric Stephen",
-                               @"blog": @"youtube.com",
-                               @"location": @"Sandy Springs, Ga",
-                               @"email": @"eric.stephen.gt@gmail.com",
-                               @"followers_url": @"22",
-                               @"following_url": @"34",
-                               },
-                           @{
-                               @"login": @"EWJSeidel",
-                               @"avatar_url": @"https://avatars.githubusercontent.com/u/8224720?",
-                               @"name": @"Eric Seidel",
-                               @"blog": @"www.ewjseidel.com",
-                               @"location": @"ATL",
-                               @"email": @"ewjseidel@gmail.com",
-                               @"followers_url": @"22",
-                               @"following_url": @"34",
-                               },
-                          
-                           
-                           
-                            ] mutableCopy];
+        githubFriends = [@[] mutableCopy];
         
+        NSArray* loadedUsers = [GRAGithubRequest loadUsers];
         
-                            }
+        if (loadedUsers)
+        {
+            githubFriends = [loadedUsers mutableCopy];
+        }
+        
+        self.tableView.rowHeight = 100;
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        self.tableView.backgroundColor = [UIColor colorWithRed:0.227f green:0.227f blue:0.227f alpha:1.0f];
+        }
     
     
     return self;
@@ -179,34 +58,42 @@
     [super viewDidLoad];
     UIView* headerView = [[UIView alloc] initWithFrame:(CGRectMake(0, 0, 320, 60))];
     self.tableView.tableHeaderView = headerView;
-    
-    UIButton* searchButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 10, 40, 40)];
-    
-    
-    UITextField* search = [[UITextField alloc] initWithFrame:(CGRectMake(10, 10, 253, 40))];
-    search.placeholder = @"  search";
     headerView.backgroundColor = [UIColor colorWithRed:0.965f green:0.125f blue:0.341f alpha:1.0f];
-    [headerView addSubview:search];
     
-    search.layer.cornerRadius = 5;
-    search.backgroundColor = [UIColor whiteColor];
     
+    
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    [tap setCancelsTouchesInView:NO];
+
+    // little round search button with magnifying glass
+    searchButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 10, 40, 40)];
+    [searchButton addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
+    UIImage* searchIconImg = [UIImage imageNamed:@"searchButton.png"];
+    [searchButton setImage:searchIconImg forState:UIControlStateNormal];
+    [headerView addSubview:searchButton];
+    
+    
+    
+    // search field for users to type in username
+    searchField = [[UITextField alloc] initWithFrame:(CGRectMake(10, 10, 253, 40))];
+    searchField.placeholder = @" search";
+    searchField.layer.cornerRadius = 5;
+    searchField.backgroundColor = [UIColor whiteColor];
+//    [self.searchField = resignFirstResponder];
+    [headerView addSubview:searchField];
+    
+    UIView* searchPadding = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    [searchField setLeftViewMode: UITextFieldViewModeAlways];
+    [searchField setLeftView:searchPadding];
+
     
     CGRect sepFrame = CGRectMake(0, headerView.frame.size.height-1, 320, 1);
-    
     UIView * seperatorView = [[UIView alloc] initWithFrame:sepFrame];
     seperatorView.backgroundColor = [UIColor lightGrayColor];
     [headerView addSubview:seperatorView];
     
-    UIImage* myButton = [UIImage imageNamed:@"searchButton.png"];
-    [searchButton setImage:myButton forState:UIControlStateNormal];
-    [self.view addSubview:searchButton];
-    
-    
-    
-    
-
-  
     // round search button
 //    searchButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 15, 44, 44)];
 //    [self.view addSubview:searchButton];
@@ -221,6 +108,23 @@
     //
 
 }
+
+
+-(void)buttonClicked
+{
+    NSLog(@"ButtonWasPressed");
+    NSDictionary* userInfo = [GRAGithubRequest requestUserInfo:searchField.text];
+    [githubFriends addObject:userInfo];
+    [self.tableView reloadData];
+    
+    [GRAGithubRequest saveUsers:githubFriends];
+    
+}
+-(void)dismissKeyboard
+{
+    [searchField resignFirstResponder];
+}
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -251,6 +155,7 @@
     }
     /* cell is used when you create it and then self is used after it's been created "build a house is the cell, modify the inside after is self"*/
     cell.friendInfo = githubFriends[indexPath.row];
+    cell.navigationController = self.navigationController;
     
     NSLog(@"%@", cell.friendInfo);
     
@@ -267,44 +172,36 @@
 {
     NSLog(@"Select row at %@", indexPath);
     
-    GHFViewController* profileView = [[GHFViewController alloc] init];
-    
-    profileView.view.backgroundColor = [UIColor lightGrayColor];
-    
-    profileView.friendInfo = githubFriends[indexPath.row];
-    
-    [self.navigationController pushViewController:profileView animated:YES];
+ 
     
 }
 
-/*
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [githubFriends removeObjectAtIndex:indexPath.row];
+        [GRAGithubRequest saveUsers:githubFriends];
+        
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
-/*
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
 }
-*/
+
 
 /*
 // Override to support conditional rearranging of the table view.

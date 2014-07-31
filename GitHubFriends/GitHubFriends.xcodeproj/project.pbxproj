@@ -26,6 +26,7 @@
 		8E75B1BE1982DFA60049409D /* profileArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E75B1BD1982DFA60049409D /* profileArrow.png */; };
 		8E75B1C11982DFAE0049409D /* upArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E75B1BF1982DFAE0049409D /* upArrow.png */; };
 		8E75B1C21982DFAE0049409D /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E75B1C01982DFAE0049409D /* downArrow.png */; };
+		8EA980E71986A13300FB6F9A /* GRAGithubRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA980E61986A13300FB6F9A /* GRAGithubRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		8E75B1BD1982DFA60049409D /* profileArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileArrow.png; sourceTree = "<group>"; };
 		8E75B1BF1982DFAE0049409D /* upArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upArrow.png; sourceTree = "<group>"; };
 		8E75B1C01982DFAE0049409D /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
+		8EA980E51986A13300FB6F9A /* GRAGithubRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRAGithubRequest.h; sourceTree = "<group>"; };
+		8EA980E61986A13300FB6F9A /* GRAGithubRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRAGithubRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,8 @@
 		8E239D9719813F8200356422 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8EA980E51986A13300FB6F9A /* GRAGithubRequest.h */,
+				8EA980E61986A13300FB6F9A /* GRAGithubRequest.m */,
 				8E239D9819813FA300356422 /* GHFTableViewController.h */,
 				8E239D9919813FA300356422 /* GHFTableViewController.m */,
 				8E239D9B1981481300356422 /* GHFTableViewCell.h */,
@@ -292,6 +297,7 @@
 				8E239D9D1981481300356422 /* GHFTableViewCell.m in Sources */,
 				8E239D9A19813FA300356422 /* GHFTableViewController.m in Sources */,
 				8E239D7519813F2900356422 /* main.m in Sources */,
+				8EA980E71986A13300FB6F9A /* GRAGithubRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

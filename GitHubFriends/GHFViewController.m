@@ -9,6 +9,7 @@
 #import "GHFViewController.h"
 #import "GHFTableViewController.h"
 
+
 @interface GHFViewController ()
 
 @end
@@ -33,7 +34,7 @@
     [super viewDidLoad];
     
     webView = [[UIWebView alloc] initWithFrame:self.view.frame];
-//    self.tableView.backgroundColor = [UIColor lightGrayColor];
+
     [self.view addSubview:webView
           
      ];
@@ -51,6 +52,7 @@
     NSURLRequest * request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

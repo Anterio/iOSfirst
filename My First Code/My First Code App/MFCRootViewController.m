@@ -24,8 +24,10 @@
     UITextField * phoneField;
     UIButton * redButton;
     UIButton * YellowButton;
-
+//    GKSession * session;
 }
+
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -124,6 +126,13 @@
     [self.view addSubview:blueButton];
     blueButton.layer.cornerRadius = 20;
     [blueButton addTarget:self action:@selector(blueButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+
+    
+    
+//    struct session = [[GKSession alloc] initWithSessionID:@"mySessionId" displayName:[[UIDevice currentDevice] name] sessionMode:GKSessionModeServer];
+//    struct session.delegate = self;
+//    [session setDataReceiveHandler: self withContext:nil];
+//    struct session.available = YES;
     
   redButton = [[UIButton alloc] initWithFrame:CGRectMake(140, 340, 40, 40)];
    redButton.backgroundColor = [UIColor redColor];

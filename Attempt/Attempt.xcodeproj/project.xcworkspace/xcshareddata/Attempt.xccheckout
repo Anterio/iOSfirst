@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>77BEAEF3-5201-4109-8260-04D7DBFEE1E5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Attempt</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7BC97F55-82AF-4C61-8990-787214C9513B</key>
+		<string>https://github.com/Anterio/iOSfirst.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Attempt/Attempt.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7BC97F55-82AF-4C61-8990-787214C9513B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Anterio/iOSfirst.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7BC97F55-82AF-4C61-8990-787214C9513B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7BC97F55-82AF-4C61-8990-787214C9513B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOSfirst</string>
+		</dict>
+	</array>
+</dict>
+</plist>

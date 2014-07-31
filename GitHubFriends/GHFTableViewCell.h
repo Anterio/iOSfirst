@@ -11,5 +11,5 @@
 @interface GHFTableViewCell : UITableViewCell
 
 @property (nonatomic) NSDictionary * friendInfo;
-
+@property (nonatomic) UINavigationController* navigationController;
 @end

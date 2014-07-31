@@ -7,6 +7,7 @@
 //
 
 #import "GHFTableViewCell.h"
+#import "GHFViewController.h"
 
 @implementation GHFTableViewCell
 
@@ -22,6 +23,8 @@
     UILabel* search;
     UILabel* detailTextLabel;
     UILabel* gistNumbers;
+    UIButton* profileButton;
+    UIButton* gistButton;
     
 //    UILabel*tableview;
 
@@ -42,20 +45,27 @@
                 [self.contentView addSubview: userFollows];
                 userCreepers = [[UILabel alloc] initWithFrame:(CGRectMake(115, 60, 200, 40))];
                 [self.contentView addSubview: userCreepers];
-                self.backgroundColor = [UIColor colorWithRed:0.227f green:0.227f blue:0.227f alpha:1.0f];
                 [self.contentView addSubview: gistNumbers];
-                gistNumbers = [[UILabel alloc] initWithFrame:(CGRectMake(240, 65, 25, 25))];
+                gistNumbers = [[UILabel alloc] initWithFrame:(CGRectMake(225, 65, 24, 24))];
+                self.backgroundColor = [UIColor colorWithRed:0.227f green:0.227f blue:0.227f alpha:1.0f];
+        
+        
+        
+                profileButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 15, 30, 30)];
+                profileButton.backgroundColor = [UIColor whiteColor];
+                profileButton.layer.borderColor = [[UIColor whiteColor]CGColor];
+                profileButton.layer.borderWidth = 1;
+                profileButton.layer.cornerRadius = 15;
+                profileButton.backgroundColor = [UIColor colorWithRed:0.227f green:0.227f blue:0.227f alpha:1.0f];
+                [profileButton addTarget:self action:@selector (profileButtonClicked)forControlEvents:UIControlEventTouchUpInside];
+                [self.contentView addSubview:profileButton];
+        
     
                 }
     return self;
 }
 
-//"login": "joalbright",
-//@"avatar_url": @"https://avatars.githubusercontent.com/u/1536630?",
-//"name": "Jo Albright",
-//"blog": "jo2.co",
-//"location": "Atlanta, Ga",
-//"email": "me@jo2.co",
+
 
 -(void)setFriendInfo:(NSDictionary *)friendInfo
 {
@@ -65,6 +75,16 @@
     NSData* data = [NSData dataWithContentsOfURL:url];
     UIImage* image =[UIImage imageWithData:data];
     
+    
+    if ([friendInfo [@"followers"]integerValue] > [friendInfo [@"following"]integerValue]) {
+        NSLog(@"There is more follower than following");
+    }else if ([friendInfo [@"followers"]integerValue] < [friendInfo [@"following"]integerValue]) {
+        NSLog(@"There is more following than followers");
+    }//else if ([friendInfo [@"followers"]integerValue] == [friendInfo [@"following"]integerValue] ||([friendInfo [@"followers"]integerValue]==0)&&([friendInfo [@"following"]integerValue]==0) {
+       // NSLog(@"Just a friend");
+   // }
+    
+ 
     
     friendName.text = friendInfo [@"name"];
     friendName.textColor = [UIColor lightGrayColor];
@@ -78,34 +98,36 @@
     detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light"  size:12];
     detailTextLabel.textColor = [UIColor lightGrayColor];
     
-    userFollows.text = [NSString stringWithFormat:@"follower%@", friendInfo [@"following_url"]];
+    userFollows.text = [NSString stringWithFormat:@"follower%d", [friendInfo [@"following"] intValue]];
     userFollows.font = [UIFont fontWithName:@"HelveticaNeue-Light"  size:10];
     userFollows.textColor = [UIColor lightGrayColor];
     
     
-    userCreepers.text = [NSString stringWithFormat:@"leader%@", friendInfo[@"followers_url"]];
+    userCreepers.text = [NSString stringWithFormat:@"leader%d", [friendInfo[@"followers"] intValue]];
     userCreepers.font = [UIFont fontWithName:@"HelveticaNeue-Light"  size:10];
     userCreepers.textColor = [UIColor lightGrayColor];
     
     
     
-    gistNumbers.text = friendInfo [@"location"];
+    gistNumbers.text =  [NSString stringWithFormat:@"%d", [friendInfo[@"followers"] intValue]];
     gistNumbers.textColor = [UIColor lightGrayColor];
-    gistNumbers.backgroundColor = [UIColor lightGrayColor];
-    gistNumbers.layer.cornerRadius = 10;
+    gistNumbers.backgroundColor = [UIColor whiteColor];
+    gistNumbers.layer.cornerRadius = 12;
     gistNumbers.layer.masksToBounds = YES;
+    gistNumbers.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:gistNumbers];
+    gistNumbers.font = [UIFont fontWithName:@"HelveticaNeue-Light"  size:13];
     
-    UIButton* gistButton = [[UIButton alloc] initWithFrame: CGRectMake(250, 65, 60, 25)];
-//    gistButton.backgroundColor = [UIColor lightGrayColor];
+    
+    gistButton = [[UIButton alloc] initWithFrame: CGRectMake(250, 65, 60, 25)];
     gistButton.layer.cornerRadius = 10;
+    [gistButton setTitle:@"Gist" forState:(UIControlStateNormal)];
     gistButton.layer.borderWidth = 1;
     gistButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-//    gistButton.currentTitleColor.lightGrayColor = [UIColor lightGrayColor];
-    
+    [gistButton addTarget:self action:@selector(gistButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:gistButton];
-    [gistButton setTitle:@"Gist" forState:(UIControlStateNormal)];
-    [gistButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    
+//    [gistButton setTitleColor:[UIColor lightGrayColor] forState:[UIControlEventTouchUpInside]];
 //    UIImage* myBtnImage = [UIImage imageNamed:@"heidi"]; //heidi.png
 //    
 //    [gistButton setImage:myBtnImage forState:UIControlStateNormal];
@@ -121,7 +143,27 @@
 //    [profileButton setTitle:@"Profile" forState:(UIControlStateNormal)];
 }
 
+-(void)profileButtonClicked
+{
 
+GHFViewController* profileView = [[GHFViewController alloc] init];
+
+profileView.view.backgroundColor = [UIColor lightGrayColor];
+
+profileView.friendInfo = self.friendInfo;
+
+[self.navigationController pushViewController:profileView animated:YES];
+
+}
+     -(void)gistButtonClicked
+    {
+        GHFViewController * profileView = [[GHFViewController alloc] init];
+        profileView.view.backgroundColor = [UIColor lightGrayColor];
+        
+        NSString * gistURL = [NSString stringWithFormat:@"https://gist.github.com/%@", self.friendInfo[@"login"]];
+        profileView.friendInfo = @{@"html_url":gistURL};
+        [self.navigationController pushViewController:profileView animated:YES];
+    }
 - (void)awakeFromNib
 {
     // Initialization code
