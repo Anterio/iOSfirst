@@ -27,6 +27,7 @@
 		8EAB38E8198A7E95004E3CFA /* group_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EAB38E4198A7E95004E3CFA /* group_save.png */; };
 		8EAB38E9198A7E95004E3CFA /* item_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EAB38E5198A7E95004E3CFA /* item_close.png */; };
 		8EAB38EA198A7E95004E3CFA /* item_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EAB38E6198A7E95004E3CFA /* item_save.png */; };
+		8EAB38ED198AAA37004E3CFA /* STANewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAB38EC198AAA37004E3CFA /* STANewItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		8EAB38E4198A7E95004E3CFA /* group_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = group_save.png; sourceTree = "<group>"; };
 		8EAB38E5198A7E95004E3CFA /* item_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_close.png; sourceTree = "<group>"; };
 		8EAB38E6198A7E95004E3CFA /* item_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_save.png; sourceTree = "<group>"; };
+		8EAB38EB198AAA37004E3CFA /* STANewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STANewItemViewController.h; sourceTree = "<group>"; };
+		8EAB38EC198AAA37004E3CFA /* STANewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STANewItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,8 @@
 				8EA3CCF619892C8B00F12DD0 /* STAEditItemViewController.m */,
 				8EAB38DF198A785A004E3CFA /* STANewGroupViewController.h */,
 				8EAB38E0198A785A004E3CFA /* STANewGroupViewController.m */,
+				8EAB38EB198AAA37004E3CFA /* STANewItemViewController.h */,
+				8EAB38EC198AAA37004E3CFA /* STANewItemViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EAB38ED198AAA37004E3CFA /* STANewItemViewController.m in Sources */,
 				8EA3CCF119892BB700F12DD0 /* STAGroupsTableViewController.m in Sources */,
 				8EA3CCF419892BCB00F12DD0 /* STAItemsTableViewController.m in Sources */,
 				8EAB38E1198A785A004E3CFA /* STANewGroupViewController.m in Sources */,

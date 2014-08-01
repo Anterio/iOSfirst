@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "STAEditItemViewController.h"
 
 @interface STAItemsTableViewController : UITableViewController
 

@@ -26,32 +26,13 @@
         
          self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         
-        groups = [@[
-                    [@{
-                       @"name": @"Movies to Watch",
-                       @"items": [@[
-                                    [@{@"name": @"Guardians of the Galaxy",
-                                      @"priority": @60
-                                      }mutableCopy],
-                                    [@{@"name": @"Ninja Turtles",
-                                      @"priority": @40
-                                      }mutableCopy],
-                                    [@{@"name": @"Hercules",
-                                      @"priority": @20
-                                      }mutableCopy],
-                                    
-                                    ] mutableCopy]
-                       } mutableCopy],
-                    
-                    [@{
-                       @"name": @"Apps to Write",
-                       @"items": [@[] mutableCopy]
-                       
-                       }mutableCopy],
-                    
-                    
-                    ] mutableCopy];
+        groups = ([self loadGroupData]) ? [self loadGroupData] : [@[ ]
+           
+                     mutableCopy];
+//        NSMutableArray* loadGroupsArray = [self loadGroupData];
+//        if (loadGroupsArray)
         
+     
        
         
         
@@ -82,12 +63,16 @@
     [super viewWillAppear:YES];
     NSLog(@"%@", groups);
     [self.tableView reloadData];
+    [self saveGroupData];
+    
+    
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [groups removeObjectAtIndex:indexPath.row];
+        [self saveGroupData];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -128,6 +113,23 @@
     
 }
 
+-(void)saveGroupData
+{
+    NSData * groupData = [NSKeyedArchiver archivedDataWithRootObject:groups];
+    [groupData writeToFile:[self groupFilePath] atomically:YES];
+}
+       
+-(NSMutableArray*)loadGroupData
+{
+    return [NSKeyedUnarchiver unarchiveObjectWithFile: [self groupFilePath]];
+}
+-(NSString*)groupFilePath
+{
+    NSArray* documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+    NSString* path = documentDirectories[0];
+    return [path stringByAppendingPathComponent:@"group.data"];
+}
+                     
 -(BOOL) prefersStatusBarHidden {return YES;}
 
 

@@ -22,7 +22,7 @@
     if (self) {
         self.view.backgroundColor=[UIColor whiteColor];
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(20, 60, SCREEN_WIDTH-40, 1)];
-        lineView.backgroundColor = [UIColor blackColor];
+        lineView.backgroundColor = [UIColor lightGrayColor];
         [self.view addSubview:lineView];
         
         
@@ -35,12 +35,15 @@
     [super viewDidLoad];
     groupNameField = [[UITextField alloc] initWithFrame: CGRectMake(20, 20 , SCREEN_WIDTH-40, 40)];
     [self.view addSubview:groupNameField];
-   
-    [self.view addSubview:groupNameField];
+    groupNameField.delegate = self;
     [groupNameField becomeFirstResponder];
+    
+//    groupNameField.layer.borderWidth = 1;
+//    groupNameField.layer.borderColor = [[UIColor lightGrayColor]CGColor];
     
     UIView* fieldBar=[[UIView alloc] initWithFrame:CGRectMake(20, 60, SCREEN_WIDTH-40, 1)];
     fieldBar.backgroundColor = [UIColor whiteColor];
+ 
     
     UIButton * cancelGroup = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2, 80, 100, 100)];
     [cancelGroup setImage:[UIImage imageNamed:@"group_close"] forState:UIControlStateNormal];
@@ -58,11 +61,7 @@
     
     [self.view addSubview:saveGroup];
 }
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 -(void) cancelGroupClicked
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -82,15 +81,11 @@
 //{
 //    
 //}
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self saveGroupClicked];
+    return YES;
+    
 }
-*/
 
 @end

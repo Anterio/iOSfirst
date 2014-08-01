@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface STANewGroupViewController : UIViewController
+@interface STANewGroupViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic) NSMutableArray* groups;
 
